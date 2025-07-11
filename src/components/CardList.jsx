@@ -6,9 +6,9 @@ function CardList({ data, state, dispatch }) {
   return (
     <div className="grid grid-cols-1 justify-items-center md:grid-cols-2 lg:grid-cols-3 gap-3 mt-6">
       {state.filter === FILTERCRITERIA.ALL &&
-        data.map((item, index) => (
+        data.map((item) => (
           <CardWithLink
-            key={index}
+            key={item.name}
             name={item.name}
             description={item.description}
             logo={item.logo}
@@ -20,9 +20,9 @@ function CardList({ data, state, dispatch }) {
       {state.filter === FILTERCRITERIA.ACTIVE &&
         data
           .filter((item) => item.isActive)
-          .map((item, index) => (
+          .map((item) => (
             <CardWithLink
-              key={index}
+              key={item.name}
               name={item.name}
               description={item.description}
               logo={item.logo}
@@ -34,9 +34,9 @@ function CardList({ data, state, dispatch }) {
       {state.filter === FILTERCRITERIA.INACTIVE &&
         data
           .filter((item) => !item.isActive)
-          .map((item, index) => (
+          .map((item) => (
             <CardWithLink
-              key={index}
+              key={item.name}
               name={item.name}
               description={item.description}
               logo={item.logo}

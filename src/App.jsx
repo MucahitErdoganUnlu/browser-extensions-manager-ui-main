@@ -1,10 +1,7 @@
-import React, { useEffect, useState, useReducer } from "react";
-import CardWithLink from "./components/CardWithLink";
+import React, { useEffect, useReducer } from "react";
 import TransparentTabs from "./components/TransparentTabs";
 import NavbarDefault from "./components/NavbarDefault";
 import CardList from "./components/CardList";
-import { FILTERCRITERIA } from "./constants";
-import { data } from "autoprefixer";
 
 function reducer(state, action) {
   switch (action.type) {

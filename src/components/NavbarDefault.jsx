@@ -1,13 +1,7 @@
 import moonIcon from "../../assets/images/icon-moon.svg";
 import sunIcon from "../../assets/images/icon-sun.svg";
 import React from "react";
-import {
-  Navbar,
-  MobileNav,
-  Typography,
-  Button,
-  IconButton,
-} from "@material-tailwind/react";
+import { Navbar, IconButton } from "@material-tailwind/react";
 
 export default function NavbarDefault({ isDarkMode, dispatch }) {
   return (

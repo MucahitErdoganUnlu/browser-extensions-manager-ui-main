@@ -1,12 +1,4 @@
-import {
-  Tabs,
-  TabsHeader,
-  TabsBody,
-  Tab,
-  TabPanel,
-  Typography,
-} from "@material-tailwind/react";
-import { act, useState } from "react";
+import { Tabs, TabsHeader, Tab, Typography } from "@material-tailwind/react";
 
 import { FILTERCRITERIA } from "../constants";
 

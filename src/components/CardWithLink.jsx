@@ -44,25 +44,23 @@ export default function CardWithLink({
         </div>
       </CardBody>
       <CardFooter className="mt-0 py-3 flex justify-between">
-        <a href="#" className="inline-block">
-          <Button
-            size="sm"
-            variant="outlined"
-            className={`flex items-center gap-2 rounded-full transition-colors duration-300 ${
-              state.isDarkMode
-                ? "border-gray-500 text-gray-300 hover:bg-gray-700"
-                : "border-gray-400 text-gray-800 hover:bg-gray-50"
-            }`}
-            onClick={() =>
-              dispatch({ type: "REMOVE_EXTENSION", payload: { name } })
-            }
-          >
-            Remove
-          </Button>
-        </a>
+        <Button
+          size="sm"
+          variant="outlined"
+          className={`flex items-center gap-2 rounded-full transition-colors duration-300 ${
+            state.isDarkMode
+              ? "border-gray-500 text-gray-300 hover:bg-gray-700"
+              : "border-gray-400 text-gray-800 hover:bg-gray-50"
+          }`}
+          onClick={() =>
+            dispatch({ type: "REMOVE_EXTENSION", payload: { name } })
+          }
+        >
+          Remove
+        </Button>
         <Switch
           ripple={false}
-          checked={isActive}
+          defaultChecked={isActive}
           onClick={() => dispatch({ type: "TOGGLE_ACTIVE", payload: { name } })}
           className="checked:bg-red-800"
           containerProps={{

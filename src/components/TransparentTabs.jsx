@@ -8,32 +8,40 @@ import {
 } from "@material-tailwind/react";
 import { act, useState } from "react";
 
-export default function TransparentTabs() {
-  const [activeTab, setActiveTab] = useState("All");
-  const data = ["All", "Active", "Inactive"];
+import { FILTERCRITERIA } from "../constants";
 
+export default function TransparentTabs({ state, dispatch }) {
   return (
     <div className="flex justify-between">
-      <Typography variant="h3" color="blue-gray" className="ml-5">
+      <Typography
+        variant="h3"
+        className={`ml-5 transition-colors duration-300 ${
+          state.isDarkMode ? "text-white" : "text-blue-gray-900"
+        }`}
+      >
         Extensions List
       </Typography>
-      <Tabs value={activeTab} className="max-w-[40rem]">
+      <Tabs value={state.filter} className="max-w-[40rem]">
         <TabsHeader
           className="bg-transparent"
           indicatorProps={{
             className: "shadow-none !bg-transparent p-0",
           }}
         >
-          {data.map((value) => (
+          {Object.values(FILTERCRITERIA).map((value) => (
             <Tab
               key={value}
               value={value}
-              onClick={() => setActiveTab(value)}
+              onClick={() => {
+                dispatch({ type: "SET_FILTER", payload: { filter: value } });
+              }}
               className={`rounded-full mr-2 px-4 py-1 transition-colors duration-300
                 ${
-                  activeTab === value
+                  state.filter === value
                     ? "bg-red-800 text-white"
-                    : "bg-white text-gray-800"
+                    : state.isDarkMode
+                    ? "bg-gray-700 text-gray-200 hover:bg-gray-600"
+                    : "bg-white text-gray-800 hover:bg-gray-100"
                 }`}
             >
               {value}

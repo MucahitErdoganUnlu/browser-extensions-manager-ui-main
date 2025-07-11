@@ -39,7 +39,7 @@ function App() {
   });
 
   useEffect(() => {
-    fetch("/data.json")
+    fetch(`./data.json`)
       .then((response) => response.json())
       .then((jsonData) =>
         dispatch({ type: "SET_DATA", payload: { data: jsonData } })

@@ -1,5 +1,6 @@
-import moonIcon from "../../assets/images/icon-moon.svg";
-import sunIcon from "../../assets/images/icon-sun.svg";
+// import moonIcon from "./assets/icon-moon.svg";
+// import sunIcon from "./assets/icon-sun.svg";
+// import logo from "./assets/logo.svg";
 import React from "react";
 import { Navbar, IconButton } from "@material-tailwind/react";
 
@@ -15,10 +16,7 @@ export default function NavbarDefault({ isDarkMode, dispatch }) {
           isDarkMode ? "text-white" : "text-blue-gray-900"
         }`}
       >
-        <img
-          src={`${isDarkMode ? "" : "../../assets/images/logo.svg"}`}
-          alt=""
-        />
+        <img src={`${isDarkMode ? "" : "./assets/logo.svg"}`} alt="" />
         <IconButton
           onClick={() => dispatch({ type: "TOGGLE_DARK_MODE" })}
           className={`transition-colors duration-300 ${
@@ -28,7 +26,9 @@ export default function NavbarDefault({ isDarkMode, dispatch }) {
           }`}
         >
           <img
-            src={isDarkMode ? sunIcon : moonIcon}
+            src={
+              isDarkMode ? "./assets/icon-sun.svg" : "./assets/icon-moon.svg"
+            }
             alt={isDarkMode ? "Sun icon" : "Moon icon"}
             className="w-5 h-5"
           />
